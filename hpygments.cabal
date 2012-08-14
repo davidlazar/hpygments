@@ -4,6 +4,7 @@ Synopsis:           Highlight source code using Pygments
 Description:
     Highlight source code using Pygments <http://pygments.org>. This package
     depends on Pygments and its accompanying @pygmentize@ script.
+Homepage:           https://github.com/davidlazar/hpygments
 License:            MIT
 License-file:       LICENSE
 Author:             David Lazar
