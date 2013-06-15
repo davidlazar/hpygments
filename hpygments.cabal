@@ -1,5 +1,5 @@
 Name:               hpygments
-Version:            0.1.1
+Version:            0.1.2
 Synopsis:           Highlight source code using Pygments
 Description:
     Highlight source code using Pygments <http://pygments.org>. This package
