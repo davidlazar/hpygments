@@ -30,7 +30,8 @@ module Text.Highlighting.Pygments
     -- $examples
     ) where
 
-import System.Process (readProcess)
+import System.Exit
+import System.Process (readProcessWithExitCode)
 
 import Text.Highlighting.Pygments.Lexers
 import Text.Highlighting.Pygments.Formatters
@@ -51,7 +52,12 @@ highlight lexer formatter options code = do
 pygmentize :: LexerAlias -> FormatterAlias -> Options -> String -> IO String
 pygmentize lexer formatter options code = do
     let args = ["-l", lexer, "-f", formatter] ++ optionsToArgs options
-    readProcess "pygmentize" args code
+    (exitCode, stdout, stderr) <- readProcessWithExitCode "pygmentize" args code
+    case exitCode of
+        ExitSuccess -> return stdout
+        -- TODO throw a custom exception?
+        e -> error $ "hpygments: `pygmentize " ++ unwords args ++ "` failed: " 
+                   ++ show e ++ if stderr /= "" then ": " ++ stderr else ""
 
 -- | The lexer/formatter option @(key, value)@ is passed to the @pygmentize@ 
 -- script via the command-line flag @-P key=value@.
