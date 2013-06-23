@@ -65,7 +65,7 @@ haskellLexer = Lexer
     }
 
 literateHaskellLexer :: Lexer
-literateHaskellLexer = Lexer 
+literateHaskellLexer = Lexer
     { _lexerName = "Literate Haskell"
     , _lexerAliases = ["lhs","literate-haskell"]
     , _lexerFileTypes = ["*.lhs"]

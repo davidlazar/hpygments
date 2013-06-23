@@ -37,7 +37,7 @@ import Text.Highlighting.Pygments.Lexers
 import Text.Highlighting.Pygments.Formatters
 
 -- | Highlight code robustly. This function is more robust than the
--- lower-level 'pygmentize' function since this library forbids the 
+-- lower-level 'pygmentize' function since this library forbids the
 -- construction of invalid 'Lexer' and 'Formatter' values. Invalid
 -- 'Options' may still cause this function to raise an exception.
 highlight :: Lexer -> Formatter -> Options -> String -> IO String
@@ -56,7 +56,7 @@ pygmentize lexer formatter options code = do
     case exitCode of
         ExitSuccess -> return stdout
         -- TODO throw a custom exception?
-        e -> error $ "hpygments: `pygmentize " ++ unwords args ++ "` failed: " 
+        e -> error $ "hpygments: `pygmentize " ++ unwords args ++ "` failed: "
                    ++ show e ++ if stderr /= "" then ": " ++ stderr else ""
 
 -- | The lexer/formatter option @(key, value)@ is passed to the @pygmentize@ 
