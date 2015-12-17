@@ -18,10 +18,10 @@ module Text.Highlighting.Pygments.Lexers
     , textLexer
     ) where
 
-import Data.Aeson.TH (deriveJSON)
-import Data.Maybe (listToMaybe)
+import           Data.Aeson.TH                   (defaultOptions, deriveJSON)
+import           Data.Maybe                      (listToMaybe)
 
-import Text.Highlighting.Pygments.JSON
+import           Text.Highlighting.Pygments.JSON
 
 type LexerAlias = String
 
@@ -32,7 +32,7 @@ data Lexer = Lexer
     , _lexerMimeTypes :: [String]
     } deriving (Eq, Ord, Show)
 
-$(deriveJSON id ''Lexer)
+$(deriveJSON defaultOptions ''Lexer)
 
 getAllLexers :: IO [Lexer]
 getAllLexers = getPygmentsJSON "lexers"

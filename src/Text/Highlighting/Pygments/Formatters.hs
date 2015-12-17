@@ -15,10 +15,9 @@ module Text.Highlighting.Pygments.Formatters
     , terminalFormatter
     ) where
 
-import Data.Aeson.TH (deriveJSON)
-import Data.Maybe (listToMaybe)
-
-import Text.Highlighting.Pygments.JSON
+import           Data.Aeson.TH                   (defaultOptions, deriveJSON)
+import           Data.Maybe                      (listToMaybe)
+import           Text.Highlighting.Pygments.JSON
 
 type FormatterAlias = String
 
@@ -27,7 +26,7 @@ data Formatter = Formatter
     , _formatterAliases :: [FormatterAlias]
     } deriving (Eq, Ord, Show)
 
-$(deriveJSON id ''Formatter)
+$(deriveJSON defaultOptions ''Formatter)
 
 getAllFormatters :: IO [Formatter]
 getAllFormatters = getPygmentsJSON "formatters"
