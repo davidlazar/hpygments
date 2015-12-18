@@ -13,6 +13,8 @@ Category:           Text
 Build-type:         Simple
 Cabal-version:      >=1.6
 
+tested-with: GHC >= 7.6.3
+
 Extra-source-files:
     README.md
 
