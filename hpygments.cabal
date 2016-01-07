@@ -4,7 +4,7 @@ cabal-version: >=1.6
 build-type: Simple
 license: MIT
 license-file: LICENSE
-maintainer: David Lazar <lazar6@illinois.edu>
+maintainer: David Lazar <lazard@csail.mit.edu>
 homepage: https://github.com/davidlazar/hpygments
 synopsis: Highlight source code using Pygments
 description:
